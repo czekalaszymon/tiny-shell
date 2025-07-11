@@ -1,0 +1,32 @@
+BasedOnStyle: LLVM
+IndentWidth: 8
+TabWidth: 8
+UseTab: Always
+
+AllowShortIfStatementsOnASingleLine: true
+
+BreakBeforeBraces: Linux
+BraceWrapping:
+  AfterFunction: true
+  AfterStruct: true
+  AfterClass: true
+  AfterEnum: true
+  BeforeElse: true
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false
+
+AlignAfterOpenBracket: DontAlign
+AlignOperands: false
+
+SpaceBeforeParens: ControlStatements
+SpacesBeforeTrailingComments: 1
+
+IndentCaseLabels: false
+ColumnLimit: 80
+ReflowComments: false
+
+SortIncludes: false
+IncludeBlocks: Preserve
+
+PointerAlignment: Left
