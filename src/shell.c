@@ -13,7 +13,7 @@ void parse_input(char* input, char** argv)
 	int i = 0;
 
 	token = strtok(input, " ");
-	while (token != NULL && i < 15) {
+	while (token != NULL && i < SHELL_MAX_ARGS - 1) {
 		argv[i++] = token;
 		token = strtok(NULL, " ");
 	}
