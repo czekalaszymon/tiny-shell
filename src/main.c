@@ -3,10 +3,13 @@
 
 #include "shell.h"
 
+#define MAX_INPUT 256
+#define MAX_ARGS
+
 int main()
 {
-	char buff[256];
-	char* argv[16];
+	char buff[MAX_INPUT];
+	char* argv[MAX_ARGS];
 
 	while (1) {
 		printf("> ");
