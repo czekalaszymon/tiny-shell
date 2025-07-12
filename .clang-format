@@ -1,9 +1,8 @@
 BasedOnStyle: LLVM
+
 IndentWidth: 8
 TabWidth: 8
 UseTab: Always
-
-AllowShortIfStatementsOnASingleLine: true
 
 BreakBeforeBraces: Linux
 BraceWrapping:
@@ -16,17 +15,20 @@ BraceWrapping:
   SplitEmptyRecord: false
   SplitEmptyNamespace: false
 
+AllowShortIfStatementsOnASingleLine: false
+
 AlignAfterOpenBracket: DontAlign
 AlignOperands: false
 
 SpaceBeforeParens: ControlStatements
-SpacesBeforeTrailingComments: 1
 
-IndentCaseLabels: false
-ColumnLimit: 80
+SpacesBeforeTrailingComments: 1
 ReflowComments: false
 
 SortIncludes: false
 IncludeBlocks: Preserve
 
 PointerAlignment: Left
+
+IndentCaseLabels: false
+ColumnLimit: 80
