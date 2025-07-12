@@ -28,9 +28,11 @@ void run_command(char** argv)
 		execvp(argv[0], argv);
 		perror("exec failed");
 		exit(1);
-	} else if (pid > 0)
+	} else if (pid > 0) {
 		// Parent process
 		waitpid(pid, NULL, 0);
-	else
+	}
+	else {
 		perror("fork failed");
+	}
 }
