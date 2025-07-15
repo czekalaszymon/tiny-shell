@@ -24,7 +24,9 @@ int main()
 		if (strcmp(argv[0], "exit") == 0)
 			break;
 
-		run_command(argv);
+		if (handle_builtin(argv) == -1) {
+			run_command(argv);
+		}
 	}
 
 	return 0;
