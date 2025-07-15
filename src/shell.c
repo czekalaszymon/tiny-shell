@@ -36,3 +36,32 @@ void run_command(char** argv)
 		perror("fork failed");
 	}
 }
+
+int builtin_cd(char** argv) {
+    if (argv[1] == NULL) {
+        fprintf(stderr, "cd: missing argument\n");
+        return 1;
+    }
+    if (chdir(argv[1]) != 0) {
+        perror("cd");
+        return 1;
+    }
+    return 0;
+}
+
+int handle_builtin(char** argv) {
+    struct builtin_command builtins[] = {
+        { "cd", builtin_cd },
+    };
+    
+    // Number of built-ins in the list
+    int num_builtins = sizeof(builtins) / sizeof(builtins[0]);
+
+    for (int i = 0; i < num_builtins; ++i) {
+        if (strcmp(argv[0], builtins[i].name) == 0) {
+            return builtins[i].func(argv);
+        }
+    }
+
+    return -1;  // not a builtin
+}
