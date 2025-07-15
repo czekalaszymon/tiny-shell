@@ -1,15 +1,25 @@
 .PHONY: all run clean
 
 CC=gcc
-CFLAGS=-Iinclude
+CFLAGS=-Iinclude -Wall -Wextra
 SRC=$(wildcard src/*.c)
-TARGET=build/$(notdir $(CURDIR))
+OBJ=$(SRC:src/%.c=build/%.o)
+TARGET=build/tiny-shell
 
-all:
-	$(CC) $(CFLAGS) $(SRC) -o $(TARGET)
+all: $(TARGET)
+
+build:
+	mkdir -p build
+
+$(TARGET): build $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $@
+
+build/%.o: src/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 run: all
 	./$(TARGET)
 
 clean:
-	rm -f $(TARGET)
+	rm -rf build
+
